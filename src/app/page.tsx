@@ -141,20 +141,89 @@ export default function Home() {
          </HomePageSection>
 
          <HomePageSection hasCTAElement id="section-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 fadeUp">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-8 fadeUp">
                {isLoading ? (
                   <>
-                     <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
-                     <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
-                     <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
-                     <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
+                     <div className="md:col-span-3 flex">
+                        <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
+                     </div>
+                     <div className="md:col-span-2 flex">
+                        <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
+                     </div>
+                     <div className="md:col-span-2 flex">
+                        <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
+                     </div>
+                     <div className="md:col-span-3 flex">
+                        <Skeleton className="w-full h-[50vh] md:h-[70vh]" />
+                     </div>
                   </>
                ) : (
-                  cases.slice(0, 4).map((item) => (
-                     <Link key={item.id} className="flex flex-col items-center w-full h-[50vh] md:h-[70vh] shadow-lg rounded-3xl" href={`/cases/${item.slug}`}>
-                        <WixMediaImage media={item.brandLogo} alt={item.projectName} objectFit="cover" imageTitle projectName={item.projectName} companyName={item.companyName} />
-                     </Link>
-                  ))
+                  <>
+                     {cases[0] && (
+                        <Link
+                           key={cases[0].id}
+                           className="md:col-span-3 flex flex-col items-center w-full h-[50vh] md:h-[70vh] shadow-lg rounded-3xl"
+                           href={`/cases/${cases[0].slug}`}
+                        >
+                           <WixMediaImage
+                              media={cases[0].brandLogo}
+                              alt={cases[0].projectName}
+                              objectFit="cover"
+                              imageTitle
+                              projectName={cases[0].projectName}
+                              companyName={cases[0].companyName}
+                           />
+                        </Link>
+                     )}
+                     {cases[1] && (
+                        <Link
+                           key={cases[1].id}
+                           className="md:col-span-2 flex flex-col items-center w-full h-[50vh] md:h-[70vh] shadow-lg rounded-3xl"
+                           href={`/cases/${cases[1].slug}`}
+                        >
+                           <WixMediaImage
+                              media={cases[1].brandLogo}
+                              alt={cases[1].projectName}
+                              objectFit="cover"
+                              imageTitle
+                              projectName={cases[1].projectName}
+                              companyName={cases[1].companyName}
+                           />
+                        </Link>
+                     )} 
+                     {cases[2] && (
+                        <Link
+                           key={cases[2].id}
+                           className="md:col-span-2 flex flex-col items-center w-full h-[50vh] md:h-[70vh] shadow-lg rounded-3xl"
+                           href={`/cases/${cases[2].slug}`}
+                        >
+                           <WixMediaImage
+                              media={cases[2].brandLogo}
+                              alt={cases[2].projectName}
+                              objectFit="cover"
+                              imageTitle
+                              projectName={cases[2].projectName}
+                              companyName={cases[2].companyName}
+                           />
+                        </Link>
+                     )}
+                     {cases[3] && (
+                        <Link
+                           key={cases[3].id}
+                           className="md:col-span-3 flex flex-col items-center w-full h-[50vh] md:h-[70vh] shadow-lg rounded-3xl"
+                           href={`/cases/${cases[3].slug}`}
+                        >
+                           <WixMediaImage
+                              media={cases[3].brandLogo}
+                              alt={cases[3].projectName}
+                              objectFit="cover"
+                              imageTitle
+                              projectName={cases[3].projectName}
+                              companyName={cases[3].companyName}
+                           />
+                        </Link>
+                     )}
+                  </>
                )}
             </div>
          </HomePageSection>
