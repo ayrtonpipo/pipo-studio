@@ -3,7 +3,6 @@ import Image, { ImageProps } from 'next/image';
 
 function getImageUrlForMedia(media: string) {
    if (media.startsWith('wix:image')) {
-      console.log(wixMedia.getImageUrl(media));
       return wixMedia.getImageUrl(media).url;
    } else {
       return media;
