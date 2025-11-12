@@ -4,6 +4,7 @@ import { CtaSection } from "@/components/CtaSection";
 import { getLocale } from "next-intl/server";
 import { SafeHTML } from "@/components/SafeHTML";
 import { HomePageSection } from "@/components/HomePageSection";
+import Image from "next/image";
 
 interface PageProps {
    params: Promise<{ slug: string }>
@@ -21,6 +22,8 @@ export default async function Page(props: PageProps) {
 
    const gallery = caseData.mediaGallery;
 
+   console.log(gallery[0].settings);
+
    return (
       <HomePageSection className="gap-16">
          {/* MediaGallery0 */}
@@ -29,6 +32,8 @@ export default async function Page(props: PageProps) {
                <WixMediaImage
                   media={gallery[0].src}
                   alt={gallery[0].fileName}
+                  width={gallery[0].settings.width}
+                  height={gallery[0].settings.height}
                   disableZoom
                   objectFit="cover"
                   className="w-full"
@@ -70,6 +75,8 @@ export default async function Page(props: PageProps) {
                   <WixMediaImage
                      media={caseData.mediaGallery[1].src}
                      alt={caseData.mediaGallery[1].fileName}
+                     width={caseData.mediaGallery[1].settings.width}
+                     height={caseData.mediaGallery[1].settings.height}
                      disableZoom
                      objectFit="cover"
                      className="w-full"
@@ -84,6 +91,8 @@ export default async function Page(props: PageProps) {
                <WixMediaImage
                   media={caseData.mediaGallery[2].src}
                   alt={caseData.mediaGallery[2].fileName}
+                  width={caseData.mediaGallery[2].settings.width}
+                  height={caseData.mediaGallery[2].settings.height}
                   disableZoom
                   objectFit="cover"
                   className="w-full"
@@ -109,11 +118,13 @@ export default async function Page(props: PageProps) {
 
          {/* MediaGallery */}
          <div className="flex flex-col w-full justify-center gap-6">
-            {gallery.slice(1).map((item, idx) => (
+            {gallery.slice(3).map((item, idx) => (
                <div key={idx} className="w-full sm:basis-1/2 fadeUp">
                   <WixMediaImage
                      media={item.src}
                      alt={item.fileName}
+                     width={item.settings.width}
+                     height={item.settings.height}
                      disableZoom
                      objectFit="cover"
                      className="w-full"
@@ -128,7 +139,7 @@ export default async function Page(props: PageProps) {
             className="fadeUp"
          />
 
-         <CtaSection speed="0.2"/>
+         <CtaSection speed="0.2" />
       </HomePageSection>
    );
 }
