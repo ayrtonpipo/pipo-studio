@@ -22,6 +22,9 @@ export const metadata: Metadata = {
       template: "%s | Pipo Studio",
       default: "Home | Pipo Studio",
    },
+   icons: {
+      icon: "/favicon_pipo.svg",
+   },
    description: "Pipo Studio",
 };
 
