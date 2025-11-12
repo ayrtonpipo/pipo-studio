@@ -4,7 +4,6 @@ import { CtaSection } from "@/components/CtaSection";
 import { getLocale } from "next-intl/server";
 import { SafeHTML } from "@/components/SafeHTML";
 import { HomePageSection } from "@/components/HomePageSection";
-import Image from "next/image";
 
 interface PageProps {
    params: Promise<{ slug: string }>
@@ -21,8 +20,6 @@ export default async function Page(props: PageProps) {
    }
 
    const gallery = caseData.mediaGallery;
-
-   console.log(gallery[0].settings);
 
    return (
       <HomePageSection className="gap-16">
