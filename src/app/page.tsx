@@ -117,6 +117,8 @@ export default function Home() {
       });
    };
 
+   // test
+
    return (
       <div ref={homePageRef}>
          <HomePageSection speed="0.1">
