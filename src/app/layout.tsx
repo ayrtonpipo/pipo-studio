@@ -38,7 +38,7 @@ export default function RootLayout({
          <body className="font-display">
             <NextIntlClientProvider>
                <ScrollSmootherWrapper>
-                  <Header />
+                  {/* <Header /> */}
                   <main>
                      {children}
                   </main>
